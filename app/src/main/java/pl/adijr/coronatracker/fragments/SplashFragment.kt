@@ -1,0 +1,33 @@
+package pl.adijr.coronatracker.fragments
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import dagger.android.support.DaggerFragment
+import pl.adijr.coronatracker.R
+import pl.adijr.coronatracker.viewmodels.SplashViewModel
+import javax.inject.Inject
+
+class SplashFragment : DaggerFragment() {
+
+    @Inject
+    lateinit var factory: ViewModelProvider.Factory
+    private val viewModel by viewModels<SplashViewModel> { factory }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.splash_fragment, container, false).apply {
+            viewModel.fetchOnline()
+            viewModel.proceed.observe(viewLifecycleOwner, Observer {
+                findNavController().navigate(SplashFragmentDirections.toHomeFragment())
+            })
+        }
+    }
+}
