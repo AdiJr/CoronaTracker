@@ -7,14 +7,17 @@ import pl.adijr.coronatracker.models.CityModel
 interface CitiesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(weatherForecastDao: CityModel): Long
+    suspend fun insert(citiesDao: List<CityModel>): List<Long>
 
     @Update
-    suspend fun update(weatherForecastDao: CityModel): Int
+    suspend fun update(citiesDao: CityModel): Int
 
     @Delete
-    suspend fun delete(weatherForecastDao: CityModel): Int
+    suspend fun delete(citiesDao: CityModel): Int
 
     @Query("SELECT * FROM world_data WHERE country LIKE :country")
     suspend fun getCurrentCountry(country: String): CityModel
+
+    @Query("SELECT * FROM world_data")
+    suspend fun getAll(): Array<CityModel>
 }

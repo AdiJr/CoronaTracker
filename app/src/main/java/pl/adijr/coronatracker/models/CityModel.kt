@@ -6,15 +6,10 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "world_data")
 data class CityModel(
-    @SerializedName("infected") val infected: Int,
-    @SerializedName("tested") val tested: String,
-    @SerializedName("recovered") val recovered: Int,
-    @SerializedName("deceased") val deceased: Int,
+    @SerializedName("infected") val infected: String?,
+    @SerializedName("recovered") val recovered: String?,
+    @SerializedName("deceased") val deceased: String?,
     @PrimaryKey
     @SerializedName("country") val country: String,
-    @SerializedName("moreData") val moreData: String,
-    @SerializedName("historyData") val historyData: String,
-    @SerializedName("sourceUrl") val sourceUrl: String,
-    @SerializedName("lastUpdatedSource") val lastUpdatedSource: String,
     @SerializedName("lastUpdatedApify") val lastUpdatedApify: String
 )

@@ -6,19 +6,28 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import pl.adijr.coronatracker.repository.Repository
 import javax.inject.Inject
 
-class SplashViewModel @Inject constructor() : ViewModel() {
+class SplashViewModel @Inject constructor(val repository: Repository) : ViewModel() {
 
     val proceed = MutableLiveData<Boolean>()
 
     fun fetchOnline() {
         viewModelScope.launch {
             val loadingDone = async {
-                delay(4_000)
+                delay(2_500)
                 true
             }
-            loadingDone.await()
+            val fetchDone = async {
+                try {
+                    repository.fetchWorldlyStats()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+                true
+            }
+            loadingDone.await() && fetchDone.await()
             proceed.postValue(true)
         }
     }
