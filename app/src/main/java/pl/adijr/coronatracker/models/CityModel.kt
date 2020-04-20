@@ -19,10 +19,10 @@ data class Reports(
 @Parcelize
 data class Table(
     @SerializedName("TotalCases") val totalCases: String,
-    @SerializedName("NewCases") val newCases: String,
+    @SerializedName("NewCases") var newCases: String,
     @SerializedName("TotalDeaths") val totalDeaths: String,
-    @SerializedName("NewDeaths") val newDeaths: String,
+    @SerializedName("NewDeaths") var newDeaths: String,
     @SerializedName("TotalRecovered") val totalRecovered: String,
     @SerializedName("TotalTests") val totalTests: String,
-    @SerializedName("Country") val country: String
+    @SerializedName("Country") var country: String
 ) : Parcelable

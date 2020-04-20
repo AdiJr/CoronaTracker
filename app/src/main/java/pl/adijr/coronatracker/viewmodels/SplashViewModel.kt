@@ -17,8 +17,21 @@ class SplashViewModel @Inject constructor(val repository: Repository) : ViewMode
 
     fun fetchOffline() {
         viewModelScope.launch {
-            val result = repository.getAllCities()
-            citiesList.postValue(result.reports.firstOrNull()!!.table.firstOrNull())
+            val loadingDone = async {
+                delay(2_500)
+                true
+            }
+            val fetchDone = async {
+                try {
+                    val result = repository.getAllCities()
+                    citiesList.postValue(result.reports.firstOrNull()!!.table.firstOrNull())
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+                true
+            }
+            loadingDone.await() && fetchDone.await()
+            proceed.postValue(true)
         }
     }
 

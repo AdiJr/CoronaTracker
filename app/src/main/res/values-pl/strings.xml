@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recovered">Wyzdrowiali:</string>
+    <string name="infected">Zakażeni:</string>
+    <string name="deaths">Zmarli:</string>
+    <string name="tests">Wykonane testy:</string>
+    <string name="new_cases">Nowych zakażonych:</string>
+    <string name="new_deaths">Nowych przypadków śmiertelnych:</string>
+    <string name="select_list">Wybierz państwo spośród podanych poniżej</string>
+    <string name="sorted">Kraje uszeregowano ilością zachorowań</string>
+    <string name="app_desc">Bądź na bieżąco ze statystykami</string>
+</resources>

@@ -1,5 +1,7 @@
 package pl.adijr.coronatracker.fragments
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,18 +27,28 @@ class SplashFragment : DaggerFragment() {
     ): View? {
         return inflater.inflate(R.layout.splash_fragment, container, false).apply {
             with(viewModel) {
-                fetchOnline()
+                if (checkInternetConnection(context)) {
+                    fetchOnline()
+                } else {
+                    fetchOffline()
+                }
+
                 citiesList.observe(viewLifecycleOwner, Observer {
                     val worldStats = it[0]
                     proceed.observe(viewLifecycleOwner, Observer {
                         findNavController().navigate(
-                            SplashFragmentDirections.toHomeFragment(
-                                worldStats
-                            )
+                            SplashFragmentDirections.toHomeFragment(worldStats)
                         )
                     })
                 })
             }
         }
+    }
+
+    private fun checkInternetConnection(context: Context): Boolean {
+        val conManager =
+            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        return (conManager.activeNetworkInfo != null && conManager.activeNetworkInfo.isAvailable
+                && conManager.activeNetworkInfo.isConnected)
     }
 }

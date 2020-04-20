@@ -39,6 +39,30 @@ class SearchFragment : DaggerFragment() {
                 citiesList.observe(viewLifecycleOwner, Observer {
                     val list = it.toMutableList()
                     list.removeAt(0)
+
+                    for (i in list) {
+                        if (i.country == "UK") {
+                            i.country = "United Kingdom"
+                        }
+                        if (i.country == "S. Korea") {
+                            i.country = "South Korea"
+                        }
+                        if (i.country == "UAE") {
+                            i.country = "United Arab Emirates"
+                        }
+                        if (i.country == "USA") {
+                            i.country = "United States of America"
+                        }
+                        if (i.newDeaths == "") {
+                            i.newDeaths = "+N/A"
+                        }
+                        if (i.newCases == "") {
+                            i.newCases = "+N/A"
+                        }
+                        if (i.country == "Czechia") {
+                            i.country = "Czech Republic"
+                        }
+                    }
                     citiesAdapter.submitList(list.toList())
                 })
             }
