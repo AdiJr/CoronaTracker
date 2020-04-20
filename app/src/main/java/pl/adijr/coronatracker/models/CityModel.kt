@@ -5,19 +5,18 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
-import kotlinx.android.parcel.RawValue
 
-@Parcelize
 @Entity(tableName = "world_data")
 data class CityModel(
     @PrimaryKey
-    @SerializedName("reports") val reports: @RawValue List<Reports>
-) : Parcelable
+    @SerializedName("reports") val reports: List<Reports>
+)
 
 data class Reports(
     @SerializedName("table") val table: List<List<Table>>
 )
 
+@Parcelize
 data class Table(
     @SerializedName("TotalCases") val totalCases: String,
     @SerializedName("NewCases") val newCases: String,
@@ -26,4 +25,4 @@ data class Table(
     @SerializedName("TotalRecovered") val totalRecovered: String,
     @SerializedName("TotalTests") val totalTests: String,
     @SerializedName("Country") val country: String
-)
+) : Parcelable

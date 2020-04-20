@@ -24,10 +24,19 @@ class SplashFragment : DaggerFragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.splash_fragment, container, false).apply {
-            viewModel.fetchOnline()
-            viewModel.proceed.observe(viewLifecycleOwner, Observer {
-                findNavController().navigate(SplashFragmentDirections.toHomeFragment())
-            })
+            with(viewModel) {
+                fetchOnline()
+                citiesList.observe(viewLifecycleOwner, Observer {
+                    val worldStats = it[0]
+                    proceed.observe(viewLifecycleOwner, Observer {
+                        findNavController().navigate(
+                            SplashFragmentDirections.toHomeFragment(
+                                worldStats
+                            )
+                        )
+                    })
+                })
+            }
         }
     }
 }

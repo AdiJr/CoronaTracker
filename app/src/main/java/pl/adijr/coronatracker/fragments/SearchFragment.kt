@@ -23,7 +23,7 @@ class SearchFragment : DaggerFragment() {
 
     private val citiesAdapter by lazy {
         CityAdapter {
-            findNavController().navigate(SearchFragmentDirections.toHomeFragment())
+            findNavController().navigate(SearchFragmentDirections.toHomeFragment(it))
         }
     }
 
@@ -34,10 +34,14 @@ class SearchFragment : DaggerFragment() {
         return inflater.inflate(R.layout.search_fragment, container, false).apply {
             rvAvailableCountries.adapter = citiesAdapter
 
-            viewModel.getAllCities()
-            viewModel.citiesList.observe(viewLifecycleOwner, Observer {
-                citiesAdapter.submitList(it)
-            })
+            with(viewModel) {
+                getAllCities()
+                citiesList.observe(viewLifecycleOwner, Observer {
+                    val list = it.toMutableList()
+                    list.removeAt(0)
+                    citiesAdapter.submitList(list.toList())
+                })
+            }
         }
     }
 }

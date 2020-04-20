@@ -15,9 +15,6 @@ interface CitiesDao {
     @Delete
     suspend fun delete(citiesDao: CityModel): Int
 
-    /*@Query("SELECT * FROM world_data WHERE country LIKE :country")
-    suspend fun getCurrentCountry(country: String): CityModel*/
-
     @Query("SELECT * FROM world_data")
     suspend fun getAll(): CityModel
 }

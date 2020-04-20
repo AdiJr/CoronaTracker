@@ -8,6 +8,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.home_fragment.view.*
 import pl.adijr.coronatracker.R
@@ -19,6 +20,7 @@ class HomeFragment : DaggerFragment() {
     @Inject
     lateinit var factory: ViewModelProvider.Factory
     private val viewModel by viewModels<HomeViewModel> { factory }
+    private val args by navArgs<HomeFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,10 +31,15 @@ class HomeFragment : DaggerFragment() {
                 override fun handleOnBackPressed() {
                     activity?.finish()
                 }
-
             }
         )
         return inflater.inflate(R.layout.home_fragment, container, false).apply {
+
+            tvCountryName.text = args.country.country
+            tvRecovered.text = args.country.totalRecovered
+            tvTotalInfected.text = args.country.totalCases
+            tvDeaths.text = args.country.totalDeaths
+
             fabSearch.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.toSearchFragment())
             }

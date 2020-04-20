@@ -6,12 +6,21 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import pl.adijr.coronatracker.models.Table
 import pl.adijr.coronatracker.repository.Repository
 import javax.inject.Inject
 
 class SplashViewModel @Inject constructor(val repository: Repository) : ViewModel() {
 
     val proceed = MutableLiveData<Boolean>()
+    val citiesList = MutableLiveData<List<Table>>()
+
+    fun fetchOffline() {
+        viewModelScope.launch {
+            val result = repository.getAllCities()
+            citiesList.postValue(result.reports.firstOrNull()!!.table.firstOrNull())
+        }
+    }
 
     fun fetchOnline() {
         viewModelScope.launch {
@@ -23,6 +32,7 @@ class SplashViewModel @Inject constructor(val repository: Repository) : ViewMode
                 try {
                     val result = repository.fetchWorldlyStats()
                     repository.storeAll(result)
+                    citiesList.postValue(result.reports.firstOrNull()!!.table.firstOrNull())
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }

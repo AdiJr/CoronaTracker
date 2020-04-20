@@ -26,6 +26,9 @@
             app:destination="@id/searchFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
+        <argument
+            android:name="country"
+            app:argType="pl.adijr.coronatracker.models.Table" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
