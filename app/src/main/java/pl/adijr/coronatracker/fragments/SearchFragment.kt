@@ -12,7 +12,6 @@ import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.search_fragment.view.*
 import pl.adijr.coronatracker.R
 import pl.adijr.coronatracker.adapters.CityAdapter
-import pl.adijr.coronatracker.models.CityModel
 import pl.adijr.coronatracker.viewmodels.SearchViewModel
 import javax.inject.Inject
 
@@ -33,16 +32,12 @@ class SearchFragment : DaggerFragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.search_fragment, container, false).apply {
+            rvAvailableCountries.adapter = citiesAdapter
 
             viewModel.getAllCities()
             viewModel.citiesList.observe(viewLifecycleOwner, Observer {
-                val list = mutableListOf<CityModel>()
-                for (i in it) if (i.infected != null && i.deceased != null && i.recovered != null && i.infected != "NA" && i.deceased != "NA") {
-                    list.add(i)
-                }
-                citiesAdapter.submitList(list)
+                citiesAdapter.submitList(it)
             })
-            rvAvailableCountries.adapter = citiesAdapter
         }
     }
 }

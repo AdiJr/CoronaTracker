@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface CovidApi {
 
-    @GET("v2/key-value-stores/tVaYRsPHLjNdNBu7S/records/LATEST?disableRedirect=true")
-    suspend fun getWorldlyStats(): Array<CityModel>
+    @GET("/api/v1/AllReports")
+    suspend fun getWorldlyStats(): CityModel
 
 }

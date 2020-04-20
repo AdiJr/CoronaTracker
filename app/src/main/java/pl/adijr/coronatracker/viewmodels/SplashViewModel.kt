@@ -21,7 +21,8 @@ class SplashViewModel @Inject constructor(val repository: Repository) : ViewMode
             }
             val fetchDone = async {
                 try {
-                    repository.fetchWorldlyStats()
+                    val result = repository.fetchWorldlyStats()
+                    repository.storeAll(result)
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }

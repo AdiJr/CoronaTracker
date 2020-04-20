@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Poland"
+        tools:text="Poland"
         android:textColor="@color/primaryColor"
         android:textSize="40sp"
         android:textStyle="bold"
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="Coronavirus cases:"
+        android:text="Infected:"
         android:textColor="@color/primaryDarkColor"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="742"
+        tools:text="742"
         android:textColor="#FF4CAF50"
         android:textSize="60sp"
         android:textStyle="bold"
@@ -74,7 +74,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="8325"
+        tools:text="8325"
         android:textSize="90sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +86,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="312"
+        android:textColor="@android:color/black"
+        tools:text="312"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,24 +110,14 @@
         app:layout_constraintTop_toBottomOf="@+id/tvLastUpdated" />
 
     <TextView
-        android:id="@+id/tvDataProvider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Data source: Ministerstwo Zdrowia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCountryName" />
-
-    <TextView
         android:id="@+id/tvLastUpdated"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="Last updated: 18.04.2020"
+        app:layout_constraintTop_toBottomOf="@+id/tvCountryName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDataProvider" />
+        tools:text="Last updated: 18.04.2020" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabSearch"

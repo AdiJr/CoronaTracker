@@ -7,7 +7,7 @@ import pl.adijr.coronatracker.models.CityModel
 interface CitiesDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(citiesDao: List<CityModel>): List<Long>
+    suspend fun insert(citiesDao: CityModel): Long
 
     @Update
     suspend fun update(citiesDao: CityModel): Int
@@ -15,9 +15,9 @@ interface CitiesDao {
     @Delete
     suspend fun delete(citiesDao: CityModel): Int
 
-    @Query("SELECT * FROM world_data WHERE country LIKE :country")
-    suspend fun getCurrentCountry(country: String): CityModel
+    /*@Query("SELECT * FROM world_data WHERE country LIKE :country")
+    suspend fun getCurrentCountry(country: String): CityModel*/
 
     @Query("SELECT * FROM world_data")
-    suspend fun getAll(): Array<CityModel>
+    suspend fun getAll(): CityModel
 }

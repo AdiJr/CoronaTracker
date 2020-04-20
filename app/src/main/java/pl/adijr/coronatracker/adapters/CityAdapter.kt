@@ -8,11 +8,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_country.view.*
 import pl.adijr.coronatracker.R
-import pl.adijr.coronatracker.models.CityModel
+import pl.adijr.coronatracker.models.Table
 
 class CityAdapter(
-    private val listener: (CityModel) -> Unit
-) : ListAdapter<CityModel, CityAdapter.CitiesViewHolder>(DIFF_CALLBACK) {
+    private val listener: (Table) -> Unit
+) : ListAdapter<Table, CityAdapter.CitiesViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         CitiesViewHolder(
@@ -27,23 +27,23 @@ class CityAdapter(
         holder.bind(getItem(position), listener)
 
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<CityModel>() {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Table>() {
             override fun areItemsTheSame(
-                oldItem: CityModel,
-                newItem: CityModel
+                oldItem: Table,
+                newItem: Table
             ): Boolean =
                 oldItem.country == newItem.country
 
             override fun areContentsTheSame(
-                oldItem: CityModel,
-                newItem: CityModel
+                oldItem: Table,
+                newItem: Table
             ): Boolean =
                 oldItem == newItem
         }
     }
 
     class CitiesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(city: CityModel, listener: (CityModel) -> Unit) {
+        fun bind(city: Table, listener: (Table) -> Unit) {
             itemView.apply {
                 tvItemCountryName.text = city.country
                 setOnClickListener { listener(city) }

@@ -17,7 +17,7 @@ class RemoteModule {
     @Singleton
     fun provideCovidService(okHttpClient: OkHttpClient): CovidApi =
         Retrofit.Builder()
-            .baseUrl("https://api.apify.com/")
+            .baseUrl("https://covid19-server.chrismichael.now.sh")
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
             .build()
