@@ -52,6 +52,34 @@ class HomeFragment : DaggerFragment() {
                 tvTests.text = "N/A"
             }
 
+            if (args.country.country == "USA") {
+                tvCountryName.text = context.getString(R.string.us)
+            }
+
+            if (args.country.country == "UK") {
+                tvCountryName.text = context.getString(R.string.uk)
+            }
+
+            if (args.country.country == "UAE") {
+                tvCountryName.text = context.getString(R.string.uae)
+            }
+
+            if (args.country.country == "ZEA") {
+                tvCountryName.text = context.getString(R.string.uae)
+            }
+
+            if (args.country.country == "Bośnia") {
+                tvCountryName.text = context.getString(R.string.bosnia)
+            }
+
+            if (args.country.country == "Bosnia") {
+                tvCountryName.text = context.getString(R.string.bosnia)
+            }
+
+            if (args.country.country == "WKS") {
+                tvCountryName.text = "Wybrzeże Kości Słoniowej"
+            }
+
             fabSearch.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.toSearchFragment())
             }
