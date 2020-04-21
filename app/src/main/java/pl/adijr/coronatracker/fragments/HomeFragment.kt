@@ -55,6 +55,9 @@ class HomeFragment : DaggerFragment() {
             fabSearch.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.toSearchFragment())
             }
+            tvPrivacy.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.toPrivacyFragment())
+            }
         }
     }
 }

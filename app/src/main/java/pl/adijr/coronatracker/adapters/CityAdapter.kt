@@ -47,7 +47,7 @@ class CityAdapter(
             itemView.apply {
                 tvItemCountryName.text = city.country
                 if (city.newCases == "+N/A") {
-                    tvAllNew.text = "${city.totalCases}"
+                    tvAllNew.text = "${city.totalCases} (N/A)"
                 } else {
                     tvAllNew.text = "${city.totalCases} (${city.newCases})"
                     setOnClickListener { listener(city) }

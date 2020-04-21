@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import dagger.android.support.DaggerFragment
 import pl.adijr.coronatracker.R
 import pl.adijr.coronatracker.viewmodels.SplashViewModel
+import java.util.*
 import javax.inject.Inject
 
 class SplashFragment : DaggerFragment() {
@@ -34,6 +35,9 @@ class SplashFragment : DaggerFragment() {
                 }
                 citiesList.observe(viewLifecycleOwner, Observer {
                     val worldStats = it[0]
+                    if (Locale.getDefault().language == Locale("pl").language) {
+                        worldStats.country = "Świat"
+                    }
                     proceed.observe(viewLifecycleOwner, Observer {
                         findNavController().navigate(
                             SplashFragmentDirections.toHomeFragment(worldStats)

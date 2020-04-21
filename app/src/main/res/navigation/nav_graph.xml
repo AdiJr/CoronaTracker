@@ -29,6 +29,11 @@
         <argument
             android:name="country"
             app:argType="pl.adijr.coronatracker.models.Table" />
+        <action
+            android:id="@+id/toPrivacyFragment"
+            app:destination="@id/privacyFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -41,5 +46,10 @@
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
     </fragment>
+    <fragment
+        android:id="@+id/privacyFragment"
+        android:name="pl.adijr.coronatracker.fragments.PrivacyFragment"
+        android:label="fragment_privacy"
+        tools:layout="@layout/privacy_fragment" />
 
 </navigation>

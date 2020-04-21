@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="recovered">Wyzdrowiali:</string>
-    <string name="infected">Zakażeni:</string>
-    <string name="deaths">Zmarli:</string>
+    <string name="recovered">Wyzdrowiało:</string>
+    <string name="infected">Zakażonych:</string>
+    <string name="deaths">Zmarło:</string>
     <string name="tests">Wykonane testy:</string>
-    <string name="new_cases">Nowych zakażonych:</string>
-    <string name="new_deaths">Nowych przypadków śmiertelnych:</string>
+    <string name="new_cases">Zakażonych dzisiaj:</string>
+    <string name="new_deaths">Zmarło dzisiaj:</string>
     <string name="select_list">Wybierz państwo spośród podanych poniżej</string>
     <string name="sorted">Kraje uszeregowano ilością zachorowań</string>
     <string name="app_desc">Bądź na bieżąco ze statystykami dotyczącymi koronawirusa</string>
+    <string name="third_party_title">Licencje Podmiotów Trzecich</string>
+    <string name="privacy_policy">Polityka prywatności</string>
+    <string name="legal_title">Informacje prawne</string>
+    <string name="privacy_text">Ta aplikacja nie zbiera żadnych o użytkowniku.\n\nDeweloper nie zazwala na żadne reklamowanie innych firm ani podmiotów trzecich.
+        \n\nNiniejsza polityka prywatności została zaktualizowana ostatni raz 21/04/2020. Od czasu do czasu może ulec zmianie. Jeżeli zostaną wprowadzane jakieś zmiany, AdiJr
+        zaktualizuje je na tej stronie i powiadomi użytkownika o zmianach.</string>
 </resources>
