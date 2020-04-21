@@ -8,5 +8,5 @@
     <string name="new_deaths">New Deaths:</string>
     <string name="select_list">Select country from below</string>
     <string name="sorted">Countries are sorted by total cases</string>
-    <string name="app_desc">Keeps you updated with all Coronavirus statistics</string>
+    <string name="app_desc">Keeps you updated with all coronavirus statistics</string>
 </resources>

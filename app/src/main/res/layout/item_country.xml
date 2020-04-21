@@ -34,16 +34,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvItemCountryName" />
 
-    <ImageView
-        android:id="@+id/ivFlag"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+    <TextView
+        android:id="@+id/tvAllNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:textColor="@color/primaryColor"
         android:layout_marginBottom="8dp"
-        android:visibility="gone"
+        android:textSize="17sp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:text="12300 (144)" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

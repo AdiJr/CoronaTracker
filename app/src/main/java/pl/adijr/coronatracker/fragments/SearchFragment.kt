@@ -38,7 +38,6 @@ class SearchFragment : DaggerFragment() {
                 getAllCities()
                 citiesList.observe(viewLifecycleOwner, Observer {
                     val list = it.toMutableList()
-                    list.removeAt(0)
 
                     for (i in list) {
                         if (i.country == "UK") {

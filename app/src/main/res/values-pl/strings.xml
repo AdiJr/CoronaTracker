@@ -8,5 +8,5 @@
     <string name="new_deaths">Nowych przypadków śmiertelnych:</string>
     <string name="select_list">Wybierz państwo spośród podanych poniżej</string>
     <string name="sorted">Kraje uszeregowano ilością zachorowań</string>
-    <string name="app_desc">Bądź na bieżąco ze statystykami</string>
+    <string name="app_desc">Bądź na bieżąco ze statystykami dotyczącymi koronawirusa</string>
 </resources>

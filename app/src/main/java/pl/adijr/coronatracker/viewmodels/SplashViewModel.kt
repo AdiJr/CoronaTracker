@@ -21,16 +21,9 @@ class SplashViewModel @Inject constructor(val repository: Repository) : ViewMode
                 delay(2_500)
                 true
             }
-            val fetchDone = async {
-                try {
-                    val result = repository.getAllCities()
-                    citiesList.postValue(result.reports.firstOrNull()!!.table.firstOrNull())
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-                true
-            }
-            loadingDone.await() && fetchDone.await()
+            val result = repository.getAllCities()
+            citiesList.postValue(result.reports.firstOrNull()!!.table.firstOrNull())
+            loadingDone.await()
             proceed.postValue(true)
         }
     }

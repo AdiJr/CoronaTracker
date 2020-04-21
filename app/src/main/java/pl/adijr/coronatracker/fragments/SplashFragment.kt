@@ -32,7 +32,6 @@ class SplashFragment : DaggerFragment() {
                 } else {
                     fetchOffline()
                 }
-
                 citiesList.observe(viewLifecycleOwner, Observer {
                     val worldStats = it[0]
                     proceed.observe(viewLifecycleOwner, Observer {

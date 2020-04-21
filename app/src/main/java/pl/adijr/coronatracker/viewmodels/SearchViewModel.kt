@@ -12,12 +12,6 @@ class SearchViewModel @Inject constructor(val repository: Repository) : ViewMode
 
     val citiesList = MutableLiveData<List<Table>>()
 
-    /*fun getCountryStats(country: String) {
-        viewModelScope.launch {
-            repository.getCountryStats(country)
-        }
-    }
-*/
     fun getAllCities() {
         viewModelScope.launch {
             val result = repository.getAllCities()

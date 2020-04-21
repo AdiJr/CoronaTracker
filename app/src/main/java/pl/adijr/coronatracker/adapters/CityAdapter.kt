@@ -46,7 +46,12 @@ class CityAdapter(
         fun bind(city: Table, listener: (Table) -> Unit) {
             itemView.apply {
                 tvItemCountryName.text = city.country
-                setOnClickListener { listener(city) }
+                if (city.newCases == "+N/A") {
+                    tvAllNew.text = "${city.totalCases}"
+                } else {
+                    tvAllNew.text = "${city.totalCases} (${city.newCases})"
+                    setOnClickListener { listener(city) }
+                }
             }
         }
     }
