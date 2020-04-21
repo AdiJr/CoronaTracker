@@ -41,9 +41,6 @@ class SearchFragment : DaggerFragment() {
                     val list = it.toMutableList()
 
                     for (i in list) {
-                        if (i.country == "UK") {
-                            i.country = "United Kingdom"
-                        }
                         if (i.country == "S. Korea") {
                             i.country = "South Korea"
                         }
@@ -56,13 +53,13 @@ class SearchFragment : DaggerFragment() {
                         if (i.country == "Czechia") {
                             i.country = "Czech Republic"
                         }
+                        if (i.country == "Bosnia and Herzegovina") {
+                            i.country = "Bosnia"
+                        }
 
                         if (Locale.getDefault().language == Locale("pl").language) {
                             if (i.country == "World") {
                                 i.country = "Świat"
-                            }
-                            if (i.country == "USA") {
-                                i.country = "Stany Zjednoczone"
                             }
                             if (i.country == "Spain") {
                                 i.country = "Hiszpania"
@@ -77,7 +74,7 @@ class SearchFragment : DaggerFragment() {
                                 i.country = "Niemcy"
                             }
                             if (i.country == "United Kingdom") {
-                                i.country = "Zjednoczone Królestwo"
+                                i.country = "UK"
                             }
                             if (i.country == "Turkey") {
                                 i.country = "Turcja"
@@ -124,7 +121,7 @@ class SearchFragment : DaggerFragment() {
                             if (i.country == "Japan") {
                                 i.country = "Japonia"
                             }
-                            if (i.country == "S. Korea") {
+                            if (i.country == "South Korea") {
                                 i.country = "Korea Południowa"
                             }
                             if (i.country == "Ecuador") {
@@ -143,7 +140,7 @@ class SearchFragment : DaggerFragment() {
                                 i.country = "Meksyk"
                             }
                             if (i.country == "UAE") {
-                                i.country = "Zjedn. Emiraty Arabskie"
+                                i.country = "ZEA"
                             }
                             if (i.country == "Denmark") {
                                 i.country = "Dania"
@@ -157,7 +154,7 @@ class SearchFragment : DaggerFragment() {
                             if (i.country == "Czech Republic") {
                                 i.country = "Czechy"
                             }
-                            if (i.country == "Philppines") {
+                            if (i.country == "Philippines") {
                                 i.country = "Filipiny"
                             }
                             if (i.country == "Qatar") {
@@ -238,8 +235,8 @@ class SearchFragment : DaggerFragment() {
                             if (i.country == "Slovenia") {
                                 i.country = "Słowenia"
                             }
-                            if (i.country == "Bosnia and Herzegovina") {
-                                i.country = "Bośnia i Hercegowina"
+                            if (i.country == "Bosnia") {
+                                i.country = "Bośnia"
                             }
                             if (i.country == "North Macedonia") {
                                 i.country = "Północna Macedonia"
@@ -263,7 +260,7 @@ class SearchFragment : DaggerFragment() {
                                 i.country = "Tunezja"
                             }
                             if (i.country == "Ivory Coast") {
-                                i.country = "Wybrzeże Kości Słoniowej"
+                                i.country = "WKS"
                             }
                             if (i.country == "Cyprus") {
                                 i.country = "Cypr"

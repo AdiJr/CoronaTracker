@@ -15,4 +15,8 @@
     <string name="privacy_text">Ta aplikacja nie zbiera żadnych o użytkowniku.\n\nDeweloper nie zazwala na żadne reklamowanie innych firm ani podmiotów trzecich.
         \n\nNiniejsza polityka prywatności została zaktualizowana ostatni raz 21/04/2020. Od czasu do czasu może ulec zmianie. Jeżeli zostaną wprowadzane jakieś zmiany, AdiJr
         zaktualizuje je na tej stronie i powiadomi użytkownika o zmianach.</string>
+    <string name="us">Stany Zjednoczone</string>
+    <string name="uk">Zjednoczone Królestwo</string>
+    <string name="uae">Zjednoczone Emiraty Arabskie</string>
+    <string name="bosnia">Bośnia i Hercegowina</string>
 </resources>
