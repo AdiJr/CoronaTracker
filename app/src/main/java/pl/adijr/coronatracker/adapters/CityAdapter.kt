@@ -12,10 +12,10 @@ import pl.adijr.coronatracker.models.Table
 
 class CityAdapter(
     private val listener: (Table) -> Unit
-) : ListAdapter<Table, CityAdapter.CitiesViewHolder>(DIFF_CALLBACK) {
+) : ListAdapter<Table, CityAdapter.CountriesViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-        CitiesViewHolder(
+        CountriesViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 R.layout.item_country,
                 parent,
@@ -23,7 +23,7 @@ class CityAdapter(
             )
         )
 
-    override fun onBindViewHolder(holder: CitiesViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: CountriesViewHolder, position: Int) =
         holder.bind(getItem(position), listener)
 
     companion object {
@@ -42,7 +42,7 @@ class CityAdapter(
         }
     }
 
-    class CitiesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class CountriesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(city: Table, listener: (Table) -> Unit) {
             itemView.apply {
                 tvItemCountryName.text = city.country
@@ -50,8 +50,8 @@ class CityAdapter(
                     tvAllNew.text = "${city.totalCases} (N/A)"
                 } else {
                     tvAllNew.text = "${city.totalCases} (${city.newCases})"
-                    setOnClickListener { listener(city) }
                 }
+                setOnClickListener { listener(city) }
             }
         }
     }

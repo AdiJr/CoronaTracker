@@ -28,6 +28,7 @@ class SearchFragment : DaggerFragment() {
         }
     }
 
+    @ExperimentalStdlibApi
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,7 +37,7 @@ class SearchFragment : DaggerFragment() {
             rvAvailableCountries.adapter = citiesAdapter
 
             with(viewModel) {
-                getAllCities()
+                getAllCountries()
                 citiesList.observe(viewLifecycleOwner, Observer {
                     val list = it.toMutableList()
 
@@ -420,6 +421,10 @@ class SearchFragment : DaggerFragment() {
                             }
                         }
                     }
+                    list.removeLast()
+                    val china = list.last()
+                    list.add(9, china)
+                    list.removeLast()
                     citiesAdapter.submitList(list.toList())
                 })
             }

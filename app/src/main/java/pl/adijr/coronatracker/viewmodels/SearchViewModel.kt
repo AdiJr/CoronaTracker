@@ -12,10 +12,11 @@ class SearchViewModel @Inject constructor(val repository: Repository) : ViewMode
 
     val citiesList = MutableLiveData<List<Table>>()
 
-    fun getAllCities() {
+    fun getAllCountries() {
         viewModelScope.launch {
-            val result = repository.getAllCities()
-            citiesList.postValue(result.reports.firstOrNull()!!.table.firstOrNull()!!)
+            val result = repository.getAllCountries()
+            citiesList.postValue(result)
         }
     }
+
 }

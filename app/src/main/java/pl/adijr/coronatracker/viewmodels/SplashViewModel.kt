@@ -21,8 +21,8 @@ class SplashViewModel @Inject constructor(val repository: Repository) : ViewMode
                 delay(2_500)
                 true
             }
-            val result = repository.getAllCities()
-            citiesList.postValue(result.reports.firstOrNull()!!.table.firstOrNull())
+            val result = repository.getAllCountries()
+            citiesList.postValue(result)
             loadingDone.await()
             proceed.postValue(true)
         }
@@ -37,7 +37,9 @@ class SplashViewModel @Inject constructor(val repository: Repository) : ViewMode
             val fetchDone = async {
                 try {
                     val result = repository.fetchWorldlyStats()
-                    repository.storeAll(result)
+                    repository.deleteAllCountries()
+                    result.reports.firstOrNull()!!.table.firstOrNull()
+                        ?.let { repository.storeAll(it) }
                     citiesList.postValue(result.reports.firstOrNull()!!.table.firstOrNull())
                 } catch (e: Exception) {
                     e.printStackTrace()
