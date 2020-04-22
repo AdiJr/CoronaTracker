@@ -39,4 +39,10 @@ SOFTWARE.</string>
     <string name="uk">United Kingdom</string>
     <string name="uae">United Arab Emirates</string>
     <string name="bosnia">Bosnia and Herzegovina</string>
+    <string name="chip_eu">Europe</string>
+    <string name="chip_na">North America</string>
+    <string name="chip_sa">South America</string>
+    <string name="chip_asia">Asia</string>
+    <string name="chip_aus">Australia</string>
+    <string name="chip_afr">Africa</string>
 </resources>

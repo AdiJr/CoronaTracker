@@ -19,4 +19,10 @@
     <string name="uk">Zjednoczone Królestwo</string>
     <string name="uae">Zjednoczone Emiraty Arabskie</string>
     <string name="bosnia">Bośnia i Hercegowina</string>
+    <string name="chip_eu">Europa</string>
+    <string name="chip_na">Ameryka Północna</string>
+    <string name="chip_sa">Ameryka Południowa</string>
+    <string name="chip_asia">Azja</string>
+    <string name="chip_aus">Australia</string>
+    <string name="chip_afr">Afryka</string>
 </resources>

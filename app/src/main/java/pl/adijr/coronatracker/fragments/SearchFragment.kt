@@ -12,6 +12,7 @@ import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.search_fragment.view.*
 import pl.adijr.coronatracker.R
 import pl.adijr.coronatracker.adapters.CityAdapter
+import pl.adijr.coronatracker.models.Table
 import pl.adijr.coronatracker.viewmodels.SearchViewModel
 import java.util.*
 import javax.inject.Inject
@@ -40,8 +41,34 @@ class SearchFragment : DaggerFragment() {
                 getAllCountries()
                 citiesList.observe(viewLifecycleOwner, Observer {
                     val list = it.toMutableList()
+                    val listEurope = mutableListOf<Table>()
+                    val listNorthAmerica = mutableListOf<Table>()
+                    val listSouthAmerica = mutableListOf<Table>()
+                    val listAsia = mutableListOf<Table>()
+                    val listAustralia = mutableListOf<Table>()
+                    val listAfrica = mutableListOf<Table>()
 
                     for (i in list) {
+
+                        if (i.continent == "Europe") {
+                            listEurope.add(i)
+                        }
+                        if (i.continent == "North America") {
+                            listNorthAmerica.add(i)
+                        }
+                        if (i.continent == "South America") {
+                            listSouthAmerica.add(i)
+                        }
+                        if (i.continent == "Asia") {
+                            listAsia.add(i)
+                        }
+                        if (i.continent == "Africa") {
+                            listAfrica.add(i)
+                        }
+                        if (i.continent == "Australia") {
+                            listAustralia.add(i)
+                        }
+
                         if (i.country == "S. Korea") {
                             i.country = "South Korea"
                         }
@@ -426,6 +453,64 @@ class SearchFragment : DaggerFragment() {
                     list.add(9, china)
                     list.removeLast()
                     citiesAdapter.submitList(list.toList())
+
+                    chip_eu.setCheckedIconResource(R.drawable.ic_check)
+                    chip_eu.setOnClickListener {
+                        if (!chip_eu.isChecked) {
+                            citiesAdapter.submitList(list.toList())
+                        } else {
+                            citiesAdapter.submitList(listEurope)
+                        }
+                    }
+
+                    chip_na.setCheckedIconResource(R.drawable.ic_check)
+                    chip_na.setOnClickListener {
+                        if (!chip_na.isChecked) {
+                            citiesAdapter.submitList(list.toList())
+                        } else {
+                            citiesAdapter.submitList(listNorthAmerica)
+                        }
+                    }
+
+                    chip_afr.setCheckedIconResource(R.drawable.ic_check)
+                    chip_afr.setOnClickListener {
+                        if (!chip_afr.isChecked) {
+                            citiesAdapter.submitList(list.toList())
+                        } else {
+                            citiesAdapter.submitList(listAfrica)
+                        }
+                    }
+
+                    chip_sa.setCheckedIconResource(R.drawable.ic_check)
+                    chip_sa.setOnClickListener {
+                        if (!chip_sa.isChecked) {
+                            citiesAdapter.submitList(list.toList())
+                        } else {
+                            citiesAdapter.submitList(listSouthAmerica)
+                        }
+                    }
+
+                    chip_asia.setCheckedIconResource(R.drawable.ic_check)
+                    chip_asia.setOnClickListener {
+                        if (!chip_asia.isChecked) {
+                            citiesAdapter.submitList(list.toList())
+                        } else {
+                            val china2 = listAsia.last()
+                            listAsia.add(2, china2)
+                            listAsia.removeLast()
+                            citiesAdapter.submitList(listAsia)
+                        }
+                    }
+
+                    chip_aus.setCheckedIconResource(R.drawable.ic_check)
+                    chip_aus.setOnClickListener {
+                        if (!chip_aus.isChecked) {
+                            citiesAdapter.submitList(list.toList())
+                        } else {
+                            citiesAdapter.submitList(listAustralia)
+                        }
+                    }
+
                 })
             }
         }

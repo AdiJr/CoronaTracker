@@ -24,6 +24,7 @@ data class Table(
     @SerializedName("NewDeaths") var newDeaths: String,
     @SerializedName("TotalRecovered") val totalRecovered: String,
     @SerializedName("TotalTests") val totalTests: String,
+    @SerializedName("Continent") val continent: String,
     @PrimaryKey
     @SerializedName("Country") var country: String
 ) : Parcelable
